@@ -1,0 +1,34 @@
+Tokenizers:
+SentencePiece
+TikToken
+
+We can tradeoff the codebook size and the sequence length. 
+We can have very long sequences of integers with very small vocabularies.
+or we can have short sequences of integers with very large vocabularies.
+
+
+Input to Model:
+
+Time Dimension:
+The way transformer's train
+We can create multiple samples out of one sample. 
+Let us say our sample contains 5 tokens in total [1, 2, 3, 4, 5]
+This could be a total of 4 samples for our transformer model.
+How?
+[1] can be used to predict 2
+[1, 2] can be used to predict 3
+[1, 2, 3] can be used to predict 4
+[1, 2, 3, 4] can be used to predict 5
+
+The training of these mini-samples within a sample is also independent for each minisample
+
+
+Batch Dimension: 
+As we are sampling these chunks of text 
+We are going to have mini-batches of multiple chunks of texts
+which are all stacked up into a single tensor
+this is for efficiency, just to keep the gpus easy 
+Very good at parallel processing of data
+But these chunks are processed completely independently
+i.e. they don't talk to each other. 
+
