@@ -32,3 +32,18 @@ Very good at parallel processing of data
 But these chunks are processed completely independently
 i.e. they don't talk to each other. 
 
+
+Arrangement of Dimensions for Cross Entropy 
+The torch functional cross-entropy function
+expects the channels to be the second Dimension
+The way in which our logits will be generated is (B, T, C)
+B: Batch Dimension
+T: Time Dimension
+C: Channels showing how likely a certain character is to follow a given character. 
+
+So we need to reshape our logits to properly fit the cross_entropy format of inputs. 
+
+Initial Loss: 
+With 65 characters in vocab: 
+We are expecting a loss of -ln(1 / 65): 4.87
+
