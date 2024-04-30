@@ -52,3 +52,10 @@ device = "mps" if torch.backends.mps.is_available() else "cpu"
 model.to(device)
 Seems useless as code runs slower on mps than on cpu. 
 Check what is happening. 
+
+
+Mathematical trick in self-attention
+The tokens should only flow from previous context to the current time-step
+We cannot get any information from the future because we want to predict the future. 
+
+
