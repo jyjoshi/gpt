@@ -12,6 +12,7 @@ learning_rate = 1e-2
 # device = 'mps' if torch.backends.mps.is_available() else 'cpu'
 device = 'cpu'
 eval_iters = 200
+n_embd = 32
 # ------------
 
 torch.manual_seed(1337)
@@ -65,12 +66,15 @@ class BigramLanguageModel(nn.Module):
     def __init__(self):
         super().__init__()
         # each token directly reads off the logits for the next token from a lookup table
-        self.token_embedding_table = nn.Embedding(vocab_size, vocab_size)
+        self.token_embedding_table = nn.Embedding(vocab_size, n_embd)
+        self.lm_head = nn.Linear(n_embd, vocab_size)
+        self.position_embedding_table = nn.Embedding(block_size, n_embd)
 
     def forward(self, idx, targets=None):
 
         # idx and targets are both (B,T) tensor of integers
-        logits = self.token_embedding_table(idx) # (B,T,C)
+        self.token_embeddings = self.token_embedding_table(idx) # (B,T,C) where C is the embedding size
+        logits = self.lm_head(self.token_embeddings) # (B,T, vocab_size)
 
         if targets is None:
             loss = None
