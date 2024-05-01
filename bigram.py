@@ -71,10 +71,12 @@ class BigramLanguageModel(nn.Module):
         self.position_embedding_table = nn.Embedding(block_size, n_embd)
 
     def forward(self, idx, targets=None):
-
+        B, T = idx.shape
         # idx and targets are both (B,T) tensor of integers
         self.token_embeddings = self.token_embedding_table(idx) # (B,T,C) where C is the embedding size
-        logits = self.lm_head(self.token_embeddings) # (B,T, vocab_size)
+        pos_embeddings = self.position_embedding_table(torch.arange(T,device=device)) # (T,C)
+        x = self.token_embeddings + pos_embeddings
+        logits = self.lm_head(x) # (B,T, vocab_size)
 
         if targets is None:
             loss = None
