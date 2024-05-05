@@ -172,7 +172,8 @@ There are 2 techniques that dramatically help with deep networks Optimization
 1. Residual Connections
 2. LayerNormalization
 
-Residual Connections:
+## Residual Connections:
+
 ![Residual Connections](./images/resnet-e1548261477164.png)
 
 You transorm the data
@@ -202,3 +203,20 @@ Residual blocks are ususally initialised in the beginning such that they contrib
 But during the optimization, the residual blocks come online and start contributing and kick in.
 
 This dramatically helps with the optimization.
+
+## Layer Normalization
+
+Very similar to BatchNormalization
+
+You can think of it this way.
+
+Instead of normalizing the cols.
+We will normalize the rows.
+
+We don't need the buffers as in bn
+No distinction between training and test time as in bn
+We don't need momentum as in bn
+We do need gamma and beta for obvious reasons.
+
+Here are some basic types of norms:
+![Types of Norms](./images/all_about_norms.jpeg)
