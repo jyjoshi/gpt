@@ -159,8 +159,3 @@ Let us say over original communcating channels were 32
 So now 4 each head we will have 8 communicating channels => 32 // 4
 They will concatenate to give 32 -> n_embd 
 
-
-
-
-
-
