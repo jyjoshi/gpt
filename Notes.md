@@ -268,3 +268,5 @@ There is no triangular mask here.
 Once encoding is done.
 The keys and values can be used from the encoder
 while the queries come from the decoder.
+
+**Note** We can treat the heads as the fourth-dimension. Creating nice batches.
