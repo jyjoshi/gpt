@@ -278,8 +278,9 @@ How does it relate to what we learned?
 
 Roughly 2 stages:
 Pre-training (What we have done. Get a GPT to babble internet). IT ONLY BABBLES INTERNET!!!
-Fine-tuning: Align it to be an assistant
 
+Fine-tuning: Align it to be an assistant
+![Basic Stages of Alignment](./images/Alignment_Stages.png)
 Roughly three steps
 
 - Collect demonstration data and train a supervised policy
