@@ -172,3 +172,6 @@ If this part is missing. (i.e. if only attention blocks are present without FF)
 You can think of this as the tokens did look at each other 
 But didn't really have enough time to think on what they found in other tokens. 
 
+
+Communication - Done using Multi-Headed Attention
+Computation - Done using FeedForward Networks
