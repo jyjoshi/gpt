@@ -147,6 +147,18 @@ softmax will actually converge to one-hot vectors
 
 
 
+Multi-Head Attention
+It is just applying 
+multiple attentions in parallel
+and then concatenating their results
+
+Concatenate over the channel Dimension
+The head_size needs to be adjusted
+Let us say we have 4 heads 
+Let us say over original communcating channels were 32
+So now 4 each head we will have 8 communicating channels => 32 // 4
+They will concatenate to give 32 -> n_embd 
+
 
 
 
