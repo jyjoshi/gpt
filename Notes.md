@@ -220,3 +220,29 @@ We do need gamma and beta for obvious reasons.
 
 Here are some basic types of norms:
 ![Types of Norms](./images/all_about_norms.jpeg)
+
+**Note:** Very few details about the transformers have changed over the years but the way in which ln is implemented is one of those changes.
+
+Deviation from the original paper (attention is all you need):
+Add and norm is applied after transformation
+Now it is a bit more common to apply ln
+before the transformation
+
+These modifications help more and more as the networks get deeper
+
+## Adding Dropout
+
+Dropout takes your neural net
+and randomly every forward backward pass
+shuts off some subset of neurons
+and trains without them
+and what this does effectively is
+because the mask of what is being dropped out
+is changed every single fw, bw pass
+it ends up kind of training an ensemble of sub-networks
+and then at test time everything is fully enabled and all of the sub-networks are kind of merged into a single ensemble
+
+![Dropout Diagram](./images/Dropout-work-diagram.png)
+This can be seen as a regularization technique
+Can be useful when you want to scale up a model and are concerned about overfitting.
+Read the paper in detail (Interesting)
