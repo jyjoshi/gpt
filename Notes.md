@@ -246,3 +246,25 @@ and then at test time everything is fully enabled and all of the sub-networks ar
 This can be seen as a regularization technique
 Can be useful when you want to scale up a model and are concerned about overfitting.
 Read the paper in detail (Interesting)
+
+## Encoder and Decoder Implementations
+
+We have a decoder only transformer architecture as we are just generating text and it is unconditioned on anything.
+
+What makes it a decoder is that we are using the triangular mask, which gives it the auto-regressive property.
+
+The original paper was a machine-translation paper.
+
+Eg. French - to - English translation
+
+Original Architecure
+![Original Transformer Architecture](./images/Transformer-architecture.png)
+
+Cross-Attention:
+If we want to condition the generation on some additional information.
+Then we need to use the encoder blocks.
+We feed the additional information to the encoder.
+There is no triangular mask here.
+Once encoding is done.
+The keys and values can be used from the encoder
+while the queries come from the decoder.
