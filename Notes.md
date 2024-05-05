@@ -270,3 +270,26 @@ The keys and values can be used from the encoder
 while the queries come from the decoder.
 
 **Note** We can treat the heads as the fourth-dimension. Creating nice batches.
+
+## ChatGPT
+
+What would it look like if we wanted to train ChatGPT ourselves?
+How does it relate to what we learned?
+
+Roughly 2 stages:
+Pre-training (What we have done. Get a GPT to babble internet). IT ONLY BABBLES INTERNET!!!
+Fine-tuning: Align it to be an assistant
+
+Roughly three steps
+
+- Collect demonstration data and train a supervised policy
+- Collect comparison data and train a reward model. Let the model respond and different raters rate the output providing a reward model.
+- Optimize a policy against the reward model using the PPO reinforcement learning algorithm.
+
+It also has multiple steps in between there
+
+This takes the model from being a document completer or internet babbler
+To a
+Question Answerer
+
+This data is not available publicly and is internal to OpenAI and it is much harder to replicate their results hence.
